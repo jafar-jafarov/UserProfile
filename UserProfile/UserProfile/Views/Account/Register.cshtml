@@ -1,0 +1,123 @@
+﻿@model RegisterFormModel
+@{
+    Layout = null;
+}
+
+
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login and Register</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/login/img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/login/css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="/login/css/fontawesome-all.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="/login/font/flaticon.css">
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/login/css/style.css">
+</head>
+
+<body>
+    <div id="preloader" class="preloader">
+        <div class='inner'>
+            <div class='line1'></div>
+            <div class='line2'></div>
+            <div class='line3'></div>
+        </div>
+    </div>
+    <section class="fxt-template-animation fxt-template-layout31">
+        <span class="fxt-shape fxt-animation-active"></span>
+        <div class="fxt-content-wrap">
+            <div class="fxt-heading-content">
+                <div class="fxt-inner-wrap">
+                    <div class="fxt-transformY-50 fxt-transition-delay-3">
+                        <a href="login-31.html" class="fxt-logo"><img src="/login/img/logo-31.png" alt="Logo"></a>
+                    </div>
+                    <div class="fxt-transformY-50 fxt-transition-delay-4">
+                        <h1 class="fxt-main-title">We're a Digital Agency.</h1>
+                    </div>
+                    <div class="fxt-login-option">
+                        <ul>
+                            <li class="fxt-transformY-50 fxt-transition-delay-6"><a href="#">Sing in with Google</a></li>
+                            <li class="fxt-transformY-50 fxt-transition-delay-7"><a href="#">Sing in with Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="fxt-form-content">
+                <div class="fxt-page-switcher">
+                    <h2 class="fxt-page-title mr-3">Register</h2>
+                    <ul class="fxt-switcher-wrap">
+                        <li><a asp-action="Login" class="fxt-switcher-btn">Login</a></li>
+                        <li><a href="#" class="fxt-switcher-btn active">Register</a></li>
+                    </ul>
+                </div>
+                <div class="fxt-main-form">
+                    <div class="fxt-inner-wrap">
+                        <form method="POST" asp-action="Register">
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="form-group">
+                                        <label asp-for="Name">Name</label>
+                                        <input type="text" asp-for="Name" id="fname" class="form-control"  placeholder="First Name" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="form-group">
+                                        <label asp-for="Surname">Surname</label>
+                                        <input type="text" asp-for="Surname" id="lname" class="form-control"  placeholder="Last Name" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label asp-for="Email">Email</label>
+                                        <input type="email" asp-for="Email" id="email" class="form-control"  placeholder="Your email Address" >
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="form-group">
+                                        <label asp-for="Password">Password</label>
+                                        <input type="password" asp-for="Password" id="password" class="form-control" placeholder="Password" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="form-group">
+                                        <label asp-for="ConfirmPassword">Repeat Password</label>
+                                        <input type="password" asp-for="ConfirmPassword" id="cpassword" class="form-control"  placeholder="Confirm Password" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <button type="submit" class="fxt-btn-fill">Register</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="fxt-switcher-description">Already a Member?<a asp-action="SignIn" class="fxt-switcher-text ms-1">Go to Sign In</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- jquery-->
+    <script src="/login/js/jquery-3.5.0.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/login/js/bootstrap.min.js"></script>
+    <!-- Imagesloaded js -->
+    <script src="/login/js/imagesloaded.pkgd.min.js"></script>
+    <!-- Validator js -->
+    <script src="/login/js/validator.min.js"></script>
+    <!-- Custom Js -->
+    <script src="/login/js/main.js"></script>
+
+</body>
+</html>

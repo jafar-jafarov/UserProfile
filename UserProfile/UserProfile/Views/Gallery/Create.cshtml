@@ -1,0 +1,73 @@
+﻿@model GalleryVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section addCss{
+    <link rel="stylesheet" href="~/libs/toastr.js/toastr.min.css" />
+    <link href="~/libs/jquery-image-input/jquery.image-input.css" rel="stylesheet" />
+}
+
+<form method="post" asp-action="Create" class="row" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="col-6">
+        <div class="form-group">
+           
+                <label class="control-label">Gallery sekli</label>
+                <label class="image-input" asp-for="File" >
+                    <input type="hidden" name="File" />
+                </label>
+                <span>&times;</span>
+                <input name="file" id="file" type="file" accept="image/x-png,image/gif,image/jpeg" />
+
+
+        </div>
+        <a asp-action="Index" class="btn btn-danger">Geriyə</a>
+        <button class="btn btn-info ms-2" type="submit">Əlavə et</button>
+    </div>
+</form>
+
+@section addJs{
+    <script src="~/libs/jquery-image-input/jquery.image-input.js"></script>
+    <script src="~/libs/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/libs/toastr.js/toastr.min.js"></script>
+    <script src="~/libs/toastr.js/toastr.customize.min.js"></script>
+    <script>
+    $(document).ready(function(){
+
+        $('form').on('submit', (e) => {
+          e.preventDefault();
+
+          if(!$(e.currentTarget).valid()){
+              return;
+          }
+
+          let formData = new FormData(e.currentTarget);
+
+          $.ajax({
+            url: '@Url.Action("Create")',
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response){
+                if(!response.error){
+                    toastr.success(response.message, "Uğurlu!");
+                    setTimeout(() => {
+                      window.location.assign('@Url.Action("Index")');
+                    }, 2000);
+                    return;
+                }
+
+                toastr.error(response.message, "Xəta!");
+            },
+            error: function(response){
+                console.log(response.message);
+            }
+          });
+        }).validate();
+    });
+    </script>
+}

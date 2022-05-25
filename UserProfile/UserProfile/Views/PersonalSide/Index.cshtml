@@ -1,0 +1,54 @@
+﻿@model PersonalSideFormModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section addCss{
+    <style>
+        li {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+    </style>
+}
+
+<br />
+<br />
+<div class="root">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 d-flex flex-column align-items-center">
+                @if (Model.ImagePath == null)
+                {
+                    <div class="img-div" style="width: 25%;">
+                        <img src="~/uploads/userImg/no-profile-picture.jpg" style="width: 100%;" />
+                    </div>
+                }
+                else
+                {
+                    <div class="img-div" style="width: 25%;">
+                        <img src="~/uploads/userImg/@Model?.ImagePath" style="width: 100%;" />
+                    </div>
+                }
+                <div class="name-surname d-flex">
+                    <h4> @Model?.Name</h4>
+                    <h4 style="margin-left: 7.5px;"> @Model?.Surname</h4>
+                </div>
+                <ul class="text-center">
+                    
+                    <li>İstifadəçi adı: @Model?.Username</li>
+                    <li>Email ünvanı: @Model?.EmailAddress</li>
+                   
+                </ul>
+                <div class="tools-group my-5">
+                    <a asp-action="Edit" asp-controller="PersonalSide" class="btn btn-warning">Məlumatları yenilə</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

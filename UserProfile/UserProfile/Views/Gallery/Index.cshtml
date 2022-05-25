@@ -1,0 +1,30 @@
+﻿@model ICollection<ImageFiles>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+
+<div class="rt-item">
+    <div class="rt-image">
+        @foreach (var item in Model)
+        {
+            <img src="/uploads/userGallery/@item?.ImagePath" class="attachment-neeon-size3 size-neeon-size3 wp-post-image image-sizeJ" alt="" loading="lazy" />
+        }
+        <br />
+        <br />
+        <div class="form-group mb-5">
+            <a asp-action="Create" asp-controller="Gallery" class="btn btn-primary">Elave et</a>
+        </div>
+    </div>
+</div>
+@section addCss{
+
+    <style>
+        img.image-sizeJ {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+}
