@@ -52,13 +52,7 @@ namespace UserProfile
                 cfg.Lockout.MaxFailedAccessAttempts = 3;
                 cfg.Lockout.DefaultLockoutTimeSpan = new TimeSpan(0, 3, 0);
             });
-            services.ConfigureApplicationCookie(cfg =>
-            {
-                cfg.LoginPath = "/account/login";
-
-                cfg.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-                cfg.Cookie.Name = "User Profile";
-            });
+          
             services.AddAuthentication();
             services.AddAuthorization();
 
